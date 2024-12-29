@@ -1,4 +1,1 @@
 pip install pandas numpy jieba scikit-learn torch transformers
-
-git config --global user.name "linxkon"
-git config --global user.email "linxkon@gmail.com"
