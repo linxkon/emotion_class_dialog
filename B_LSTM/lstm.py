@@ -47,7 +47,7 @@ class TextClassifier(nn.Module):
         out = self.fc(lstm_out[:, -1, :])
         return out
     
-# # 2. 基于lstm文本分类模型
+# # 2. 基于lstm+attention文本分类模型
 # class TextClassifier(nn.Module):
 #     def __init__(self, vocab_size, embedding_dim, hidden_dim, num_classes, num_layers=2, dropout=0.5):
 #         super().__init__()
