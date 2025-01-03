@@ -1,2 +1,3 @@
 A_random_forest/model/random_forest_model.pkl
 A_random_forest/model/tfidf_vectorizer.pkl
+C_Bert/models/bert_model.pth

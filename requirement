@@ -1,1 +1,5 @@
-pip install pandas numpy jieba scikit-learn torch transformers
+# 安装环境
+pip install pandas numpy jieba scikit-learn torch transformers pathlib tensorboard
+
+# 运行tensorboard
+tensorboard --logdir=runs --host=0.0.0.0 --port=6006
