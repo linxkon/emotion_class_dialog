@@ -73,21 +73,3 @@ content.to_csv(path_data_train, index=False)
 
 
 
-# # 5.划分训练集和测试集，确保类别比例一致
-# X = content['words']  # 样本
-# y = content['label']   # 标签
-
-# # 使用 stratify 确保类别比例一致
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, stratify=y, random_state=42)
-
-# # 创建训练集和测试集 DataFrame
-# train_data = pd.DataFrame({'Sample': X_train, 'Label': y_train})
-# test_data = pd.DataFrame({'Sample': X_test, 'Label': y_test})
-
-# # 结果存放到csv文件中
-# path_data_train=Path('A_random_forest/rf_data') / 'ECG_data_train.csv'
-# path_data_test=Path('A_random_forest/rf_data') / 'ECG_data_test.csv'
-# train_data.to_csv(path_data_train, index=False)
-# test_data.to_csv(path_data_test, index=False)
-
-

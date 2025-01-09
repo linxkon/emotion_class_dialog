@@ -12,7 +12,7 @@ path_data_stopwords=Path('A_random_forest') / 'stopwords.txt'
 
 # 读取数据集
 content = pd.read_csv(path_data_train)
-# 构建语料库
+# 获得分词结果
 WORDS_COLUMN = 'words'
 corpus = content[WORDS_COLUMN].values
 print('corpus:',corpus[:2])
@@ -21,16 +21,17 @@ print('corpus:',corpus[:2])
 stop_words = open(path_data_stopwords).read().split()
 print('stop_words:',stop_words[:2])
 
-# 计算tfidf特征
+# 特征工程——计算tfidf特征
 tfidf = TfidfVectorizer(stop_words=stop_words)
 text_vectors = tfidf.fit_transform(corpus)
 
-# 目标值
-targets = content['label']
+
 # 划分数据集
+targets = content['label'] # 目标值
 x_train, x_test, y_train, y_test = train_test_split(text_vectors, targets, test_size=0.2, random_state=0)
+
 # 实例化模型
-model = RandomForestClassifier(random_state=42)
+model = RandomForestClassifier(random_state=42,n_estimators=100)
 # 模型训练
 model.fit(x_train, y_train)
 # 模型评估
