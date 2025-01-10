@@ -13,7 +13,7 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') #训练设备
     path_data=Path('Data') / 'ECG_data.csv' #训练数据
     path_index=Path('Data') / 'index.csv' #标签映射
-    path_bert_base_chinese='/mnt/nvme1/linxkon/models/bert-base-chinese' #预训练模型
+    path_bert_base_chinese='/home/home/linxkon/AI_project/model/bert-base-chinese' #预训练模型
     path_model_saved=Path('C_Bert/models') / 'bert_model.pth' #模型存储位置
 
     #超参数
@@ -28,11 +28,12 @@ def main():
     data_df = pd.read_csv(path_data)
     label_df = pd.read_csv(path_index)
 
-    #构造标签映射
-    label_dic = {k: v for k, v in zip(label_df['label'].values,label_df['index'].values)}
-    ##  {'angry': 0, 'disgust': 1, 'happy': 2, 'like': 3, 'sad': 4}
+
     
     # 数据预处理
+    
+    ## 标签映射字典
+    label_dic = {k: v for k, v in zip(label_df['label'].values,label_df['index'].values)}  ##  {'angry': 0, 'disgust': 1, 'happy': 2, 'like': 3, 'sad': 4}
     texts = data_df['sentence'].values
     labels = data_df['label'].map(label_dic).values
     
