@@ -15,11 +15,11 @@ content = pd.read_csv(path_data_train)
 # 获得分词结果
 WORDS_COLUMN = 'words'
 corpus = content[WORDS_COLUMN].values
-print('corpus:',corpus[:2])
+# print('corpus:',corpus[:2])
 
 # 读取停用词
 stop_words = open(path_data_stopwords).read().split()
-print('stop_words:',stop_words[:2])
+# print('stop_words:',stop_words[:2])
 
 # 特征工程——计算tfidf特征
 tfidf = TfidfVectorizer(stop_words=stop_words)

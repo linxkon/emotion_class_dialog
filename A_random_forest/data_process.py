@@ -38,7 +38,7 @@ def convert_labels_to_index(df, label_mapping_df):
     处理后的DataFrame副本
     """
     # 创建标签到索引的字典
-    label_to_index = dict(zip(label_mapping_df['标签名称'], label_mapping_df.index))
+    label_to_index = dict(zip(label_mapping_df['label'], label_mapping_df.index))
     
     # 创建DataFrame的副本
     processed_df = df.copy()
@@ -60,11 +60,11 @@ def cut_sentence(s):
 # 添加一列数据存储分词后的结果
 content['words'] = content['sentence'].apply(cut_sentence)
 # 打印前十行
-print(content.head(10))
+# print(content.head(10))
 # 分词
 content['words'] = content['sentence'].apply(lambda s: ' '.join(cut_sentence(s)))
 
-# 将分词后的结果只保留30个元素
+# 将分词后的结果只保留90个元素
 content['words'] = content['words'].apply(lambda s: ' '.join(s.split())[:90])
 
 # 4结果存放到csv文件中
